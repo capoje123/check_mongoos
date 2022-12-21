@@ -1,0 +1,32 @@
+const express = require('express')
+const dbConnect = require('./dbConnect')
+require('dotenv').config()
+const app = express()
+const addUser= require('./function/addUser')
+const addManyUser=require('./function/addManyUser')
+const findUser=require('./function/findUser')
+const findOne = require('./function/findOne')
+const findUserBylid = require('./function/findById')
+const update=require('./function/update')
+const findUpdate = require('./function/findUpdatet')
+const findRemove = require('./function/finfRemove')
+const deleteMany = require('./function/deleteMany')
+const find  = require('./function/find')
+
+// connection to base
+dbConnect()
+find("couscous")
+//deleteMany('ali')
+//findRemove('63a2106f7470366d6b9b4d8f')
+//findUpdate("ali")
+//update('63a2106f7470366d6b9b4d8f','hamburger')
+//findUserBylid('63a2106f7470366d6b9b4d8f')
+// function calls
+//findOne("couscous")
+//findUser("ali")
+//addManyUser([{name:"issam",age:25,favotriteFoods:["couscous"]},{name:"ali",age:25,favotriteFoods:["pizza"]},{name:"foulen",age:5,favotriteFoods:["kaki"]}])
+//addUser("issam",25,["couscous"])
+
+const port=process.env.PORT
+app.get('/', (req, res) => res.send('connect'))
+app.listen(port, () => console.log(`ample app listening on port ${port}!`))
